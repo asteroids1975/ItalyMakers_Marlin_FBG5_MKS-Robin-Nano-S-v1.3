@@ -209,11 +209,11 @@ void bltouch_do_init(bool resetZoffset) {
   queue.clear();
   if (resetZoffset)
   {
-    sprintf_P(str_1, PSTR("M851 Z0\nG28\nG1 Z10 F2400\nG1 X%d Y%d\nG0 Z0.3"), X_MAX_POS / 2, Y_MAX_POS / 2);
+    sprintf_P(str_1, PSTR("M851 Z0\nG28\nG1 Z10 F2400\nG1 X%d Y%d\nG0 Z0"), X_MAX_POS / 2, Y_MAX_POS / 2);
   }
   else
   {
-    sprintf_P(str_1, PSTR("G28\nG1 Z10 F2400\nG1 X%d Y%d\nG0 Z0.3"), X_MAX_POS / 2, Y_MAX_POS / 2);
+    sprintf_P(str_1, PSTR("G28\nG1 Z10 F2400\nG1 X%d Y%d\nG0 Z0"), X_MAX_POS / 2, Y_MAX_POS / 2);
   }
   queue.enqueue_now_P(PSTR(str_1));  // fix-wang
   // queue.inject_P(PSTR(str_1));
