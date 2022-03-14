@@ -17,7 +17,7 @@
  */
 
 //default motherboard
-#define FBGHOST_MOTHERBOARD     BOARD_MKS_ROBIN_NANO
+#define FBGHOST_MOTHERBOARD     BOARD_MKS_ROBIN_NANO_V1_3_F4  //BOARD_MKS_ROBIN_NANO
 
 //  Choose your printer
 #define FBGHOST_IS_5
@@ -50,17 +50,18 @@
  */
 
 //PRESETS - usare FBGHOST_CUSTOM_CONF se si ha una configurazione particolare. A fondo documento trovi i settaggi standard.
-// #define FBGHOST_DRIVER_CUSTOM_CONF
+ #define FBGHOST_DRIVER_CUSTOM_CONF
 // #define FBGHOST_DRIVER_ALL_A4988
 // #define FBGHOST_DRIVER_ALL_TMC2208
 // #define FBGHOST_DRIVER_ALL_TMC2209
-#define FBGHOST_DRIVER_XY_TMC2208_ZE_A4988
+//#define FBGHOST_DRIVER_XY_TMC2208_ZE_A4988
 
 #ifdef FBGHOST_DRIVER_CUSTOM_CONF
   #define FBGHOST_X_DRIVER_TYPE   TMC2208_STANDALONE
   #define FBGHOST_Y_DRIVER_TYPE   TMC2208_STANDALONE
-  #define FBGHOST_Z_DRIVER_TYPE   A4988
-  #define FBGHOST_E0_DRIVER_TYPE  TMC2209_STANDALONE
+  #define FBGHOST_Z_DRIVER_TYPE   TMC2208_STANDALONE
+  #define FBGHOST_E0_DRIVER_TYPE  TMC2208_STANDALONE
+  #define FBGHOST_E1_DRIVER_TYPE  A4988
 
 
   // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
@@ -69,6 +70,7 @@
   #define FBGHOST_INVERT_Y_DIR    false
   #define FBGHOST_INVERT_Z_DIR    false
   #define FBGHOST_INVERT_E0_DIR   true
+  #define FBGHOST_INVERT_E1_DIR   true
 #endif
 
 /**
@@ -77,7 +79,7 @@
  *                                               X,  Y,  Z[, I [, J [, K]]], E0 [, E1[, E2...]]
  *
  *///                                            X,  Y,   Z,  E0
-#define FBGHOST_DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 409}
+#define FBGHOST_DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 409,200/8*PI}
 
 
 
@@ -270,7 +272,7 @@
  * Override with M203
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
-#define FBGHOST_DEFAULT_MAX_FEEDRATE  { 300, 300, 5, 70 }
+#define FBGHOST_DEFAULT_MAX_FEEDRATE  { 300, 300, 5, 70,300 }
 
 /**
  * Default Max Acceleration (change/s) change = mm/s
@@ -278,7 +280,7 @@
  * Override with M201
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
-#define FBGHOST_DEFAULT_MAX_ACCELERATION {1000,1000,200,80000}   //      { 3000, 3000, 100, 10000 }
+#define FBGHOST_DEFAULT_MAX_ACCELERATION {1000,1000,200,80000,80000}   //      { 3000, 3000, 100, 10000 }
 
 
 
