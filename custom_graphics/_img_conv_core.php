@@ -661,7 +661,7 @@ else{
     $output_name = $_POST["name"];
   }
   else{
-    echo("Mising Name\n");
+    echo("Missing Name\n");
     exit(0);
   }
 
@@ -670,7 +670,7 @@ else{
     $img_file_name = $_POST["img"];
   }
   else{
-    echo("Mising image file\n");
+    echo("Missing image file\n");
     exit(0);
   }
 
